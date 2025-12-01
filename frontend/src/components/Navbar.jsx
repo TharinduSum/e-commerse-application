@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ShoppingCart, User, LogOut, Sun, Moon } from 'lucide-react';
+import { ShoppingCart, User, LogOut } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
-import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
     const { cart } = useCart();
     const { user, logout } = useAuth();
-    const { theme, toggleTheme } = useTheme();
     const navigate = useNavigate();
     const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -22,9 +20,7 @@ const Navbar = () => {
             <div className="container mx-auto flex justify-between items-center">
                 <Link to="/" className="text-2xl font-bold">ShopMVP</Link>
                 <div className="flex items-center space-x-6">
-                    <button onClick={toggleTheme} className="hover:text-blue-200">
-                        {theme === 'light' ? <Moon size={24} /> : <Sun size={24} />}
-                    </button>
+
                     <Link to="/cart" className="flex items-center space-x-2 hover:text-blue-200">
                         <div className="relative">
                             <ShoppingCart size={24} />
