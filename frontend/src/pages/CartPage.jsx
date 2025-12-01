@@ -53,12 +53,12 @@ const CartPage = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="lg:col-span-2 space-y-4">
                     {cart.map(item => (
-                        <div key={item.id} className="flex justify-between items-center bg-white p-4 rounded shadow">
+                        <div key={item.id} className="flex justify-between items-center bg-white dark:bg-gray-700 p-4 rounded shadow transition-colors duration-300">
                             <div className="flex items-center space-x-4">
                                 <img src={item.imageUrl} alt={item.name} className="w-16 h-16 object-cover rounded" />
                                 <div>
-                                    <h3 className="font-semibold">{item.name}</h3>
-                                    <p className="text-gray-600">${item.price} x {item.quantity}</p>
+                                    <h3 className="font-semibold dark:text-white">{item.name}</h3>
+                                    <p className="text-gray-600 dark:text-gray-300">${item.price} x {item.quantity}</p>
                                 </div>
                             </div>
                             <button onClick={() => removeFromCart(item.id)} className="text-red-500 hover:text-red-700">
@@ -71,25 +71,25 @@ const CartPage = () => {
                     </div>
                 </div>
 
-                <div className="bg-white p-6 rounded shadow h-fit">
-                    <h3 className="text-xl font-bold mb-4">Checkout</h3>
+                <div className="bg-white dark:bg-gray-700 p-6 rounded shadow h-fit transition-colors duration-300">
+                    <h3 className="text-xl font-bold mb-4 dark:text-white">Checkout</h3>
                     <form onSubmit={handleCheckout} className="space-y-4">
                         <div>
-                            <label className="block text-gray-700 mb-1">Name</label>
+                            <label className="block text-gray-700 dark:text-gray-300 mb-1">Name</label>
                             <input
                                 type="text"
                                 required
-                                className="w-full border p-2 rounded"
+                                className="w-full border p-2 rounded dark:bg-gray-600 dark:text-white dark:border-gray-500"
                                 value={customerName}
                                 onChange={(e) => setCustomerName(e.target.value)}
                             />
                         </div>
                         <div>
-                            <label className="block text-gray-700 mb-1">Email</label>
+                            <label className="block text-gray-700 dark:text-gray-300 mb-1">Email</label>
                             <input
                                 type="email"
                                 required
-                                className="w-full border p-2 rounded"
+                                className="w-full border p-2 rounded dark:bg-gray-600 dark:text-white dark:border-gray-500"
                                 value={customerEmail}
                                 onChange={(e) => setCustomerEmail(e.target.value)}
                             />

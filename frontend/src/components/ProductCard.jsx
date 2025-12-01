@@ -6,13 +6,13 @@ const ProductCard = ({ product }) => {
     const { addToCart } = useCart();
 
     return (
-        <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
             <img src={product.imageUrl} alt={product.name} className="w-full h-48 object-cover" />
             <div className="p-4">
                 <Link to={`/product/${product.id}`}>
-                    <h3 className="text-xl font-semibold mb-2 hover:text-blue-600">{product.name}</h3>
+                    <h3 className="text-xl font-semibold mb-2 hover:text-blue-600 dark:text-white dark:hover:text-blue-400">{product.name}</h3>
                 </Link>
-                <p className="text-gray-600 mb-4 h-12 overflow-hidden">{product.description}</p>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 h-12 overflow-hidden">{product.description}</p>
                 <div className="flex justify-between items-center">
                     <span className="text-lg font-bold text-blue-600">${product.price}</span>
                     <button
